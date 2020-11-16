@@ -1,6 +1,6 @@
 import React from "react";
 import 'antd/dist/antd.less';
-import '../../index.css';
+// import '../../index.css';
 import { Layout } from 'antd';
 
 import {PageHeader} from './Header';
