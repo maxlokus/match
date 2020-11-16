@@ -13,6 +13,9 @@ export default function App() {
 
     const { Sider, Content } = Layout;
 
+    const updateData = (value) => {
+        setIsAuthenticated(value);
+    }
     return (
         <Layout className="app">
             {isAuthenticated ? (
@@ -21,7 +24,7 @@ export default function App() {
                     <Content>I am content</Content>
                 </>
             ) : (
-                <Login />
+                <Login updateData={updateData} />
             )}
         </Layout>
     );

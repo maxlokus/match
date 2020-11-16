@@ -3,7 +3,7 @@ import { Form, Input, Button, Checkbox } from "antd";
 
 import "./style.less";
 
-export default function Login() {
+export default function Login({updateData}) {
     // const layout = {
     //     labelCol: { span: 8 },
     //     wrapperCol: { span: 16 },
@@ -12,7 +12,9 @@ export default function Login() {
     //     wrapperCol: { offset: 8, span: 16 },
     // };
 
-    const onFinish = values => {};
+    const onFinish = () => {
+        updateData(true)
+    };
 
     const onFinishFailed = errorInfo => {};
 
@@ -38,7 +40,7 @@ export default function Login() {
                 </Form.Item>
 
                 <Form.Item>
-                    <Button type="primary" htmlType="submit">
+                    <Button type="primary" htmlType="submit" className='login-form_submit-button'>
                         Submit
                     </Button>
                 </Form.Item>
