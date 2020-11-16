@@ -1,5 +1,5 @@
 // 3rd party (node_modules)
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Layout, Menu } from "antd";
 
 import Login from "./Login/Login";
@@ -8,7 +8,7 @@ import Login from "./Login/Login";
 import "./index.less";
 
 export default function App() {
-    const [isAuthenticated, setIsAuthenticated] = useState(true);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     // const isAuthenticated = useSelector(state => global.isAuthenticated)
 
     const { Sider, Content } = Layout;
