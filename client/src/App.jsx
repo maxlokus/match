@@ -16,24 +16,24 @@ export default function App() {
   const { Content } = Layout;
 
   useEffect(() => {
-    if (localStorage.getItem('remember') === 'yes') {
+    if (localStorage.getItem("remember") === "yes") {
       setIsAuthenticated(true);
     }
   }, [isAuthenticated]);
 
-  const updateData = (value) => {
+  const updateData = value => {
     setIsAuthenticated(value);
-  }
+  };
 
   return (
     <Layout className="app">
       {isAuthenticated ? (
         <>
-          <HomePageSider updateData={updateData}/>
-          <Content>I am content</Content>
+          <HomePageSider updateData={updateData} />
+          <Content className="layout__element">I am content</Content>
         </>
       ) : (
-        <Login updateData={updateData}/>
+        <Login className="layout__element" updateData={updateData} />
       )}
     </Layout>
   );
