@@ -1,31 +1,40 @@
 // 3rd party (node_modules)
-import React, { useState } from "react";
-import { Layout, Menu } from "antd";
+import React, { useState, useEffect } from "react";
+import { Layout } from "antd";
 
 import Login from "./Login/Login";
+import HomePageSider from "./HomePage/Sider/HomePageSider";
+
 // service + api
 
 import "./index.less";
 
 export default function App() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    // const isAuthenticated = useSelector(state => global.isAuthenticated)
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // const isAuthenticated = useSelector(state => global.isAuthenticated)
 
-    const { Sider, Content } = Layout;
+  const { Content } = Layout;
 
-    const updateData = (value) => {
-        setIsAuthenticated(value);
+  useEffect(() => {
+    if (localStorage.getItem('remember') === 'yes') {
+      setIsAuthenticated(true);
     }
-    return (
-        <Layout className="app">
-            {isAuthenticated ? (
-                <>
-                    <Sider className="app-sider">I am sider</Sider>
-                    <Content>I am content</Content>
-                </>
-            ) : (
-                <Login updateData={updateData} />
-            )}
-        </Layout>
-    );
+  }, [isAuthenticated]);
+
+  const updateData = (value) => {
+    setIsAuthenticated(value);
+  }
+
+  return (
+    <Layout className="app">
+      {isAuthenticated ? (
+        <>
+          <HomePageSider updateData={updateData}/>
+          <Content>I am content</Content>
+        </>
+      ) : (
+        <Login updateData={updateData}/>
+      )}
+    </Layout>
+  );
 }
