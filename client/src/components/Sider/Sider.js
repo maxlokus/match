@@ -8,7 +8,7 @@ import { LeftCircleTwoTone, RightCircleTwoTone } from "@ant-design/icons";
 
 import "./style.less";
 
-export default function HomePageSider({ updateData }) {
+export default function Sider({ updateData }) {
   const [isSiderCollapsed, setIsSiderCollapsed] = useState(false);
 
   const { Sider } = Layout;

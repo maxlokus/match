@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Layout } from "antd";
 
 import Login from "./Login/Login";
-import HomePageSider from "./HomePage/Sider/HomePageSider";
+import HomePage from "./HomePage/HomePage";
 
 // service + api
 
@@ -12,8 +12,6 @@ import "./index.less";
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   // const isAuthenticated = useSelector(state => global.isAuthenticated)
-
-  const { Content } = Layout;
 
   useEffect(() => {
     if (localStorage.getItem("remember") === "yes") {
@@ -29,8 +27,7 @@ export default function App() {
     <Layout className="app">
       {isAuthenticated ? (
         <>
-          <HomePageSider updateData={updateData} />
-          <Content className="layout__element">I am content</Content>
+          <HomePage updateData={updateData} />
         </>
       ) : (
         <Login className="layout__element" updateData={updateData} />
