@@ -7,7 +7,7 @@ import './style.less';
 export default function GroupListItem({ listItem }) {
   return (
     <div className='group-list__item'>
-      {listItem.positionInList < 4 ? <StarTwoTone twoToneColor="#d2c720"/> : null}
+      {listItem.positionInList < 4 ? <StarTwoTone twoToneColor="#d2c720"/> : <div />}
       <span>{listItem.title}</span>
       <div className='group-list__item__state'>
         <div className='group-list__item__state_likes'>
