@@ -4,10 +4,10 @@ import { LikeOutlined, DislikeOutlined, StarTwoTone } from "@ant-design/icons";
 
 import './style.less';
 
-export default function GroupListItem({ listItem }) {
+export default function GroupListItem({ listItem, positionInList }) {
   return (
     <div className='group-list__item'>
-      {listItem.positionInList < 4 ? <StarTwoTone twoToneColor="#d2c720"/> : <div />}
+      {positionInList < 3 ? <StarTwoTone twoToneColor="#d2c720"/> : <div />}
       <span>{listItem.title}</span>
       <div className='group-list__item__state'>
         <div className='group-list__item__state_likes'>
