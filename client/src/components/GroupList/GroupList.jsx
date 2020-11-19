@@ -1,26 +1,36 @@
-import React from 'react';
+import React from "react";
 
 import GroupListItem from "./GroupListItem";
 import NewListItem from "./NewListItem/NewListItem";
 
 import { Layout } from "antd";
 
-import './style.less';
+import "./style.less";
 
 export default function GroupList() {
   const { Content } = Layout;
-  const list = [{
-    title: 'Nirvana - Smells like teen spirit',
-    likes: 3,
-    dislikes: 1,
-    positionInList: 2,
-  },
+
+  const list = [
     {
-      title: 'Adele - Hello',
+      title: "Nirvana - Smells like teen spirit",
+      likes: 3,
+      dislikes: 1,
+      positionInList: 2,
+    },
+    {
+      title: "Adele - Hello",
       likes: 2,
       dislikes: 2,
       positionInList: 4,
-    }];
+    },
+    {
+      title: "Linkin park - In the end",
+      likes: 6,
+      dislikes: 0,
+      positionInList: 4,
+    },
+  ];
+
   list.sort(function (a, b) {
     if (a.positionInList > b.positionInList) {
       return 1;
@@ -33,14 +43,12 @@ export default function GroupList() {
 
   return (
     <Content className="layout__element">
-      <div className='group-list'>
-        <NewListItem/>
-        {list.map((item) => {
-          return (
-            <GroupListItem listItem={item}/>
-          )
+      <div className="group-list">
+        <NewListItem />
+        {list.map(item => {
+          return <GroupListItem listItem={item} />;
         })}
       </div>
     </Content>
-  )
+  );
 }

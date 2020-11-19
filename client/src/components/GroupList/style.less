@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   min-width: 400px;
+  padding: 24px 0;
 }
 
 .group-list__item {
@@ -12,9 +13,21 @@
   border: 1px solid #7b7a7a;
   min-width: 400px;
   font-size: 20px;
-  width: 60vw;
+  width: 80%;
+  height: 60px;
+  max-height: 60px;
   margin-bottom: 8px;
   padding: 8px;
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.3s;
+  background-color: transparent;
+  box-shadow: 2px 2px 4px #2f2f2f57;
+
+  &:hover {
+    opacity: 0.8;
+    box-shadow: 6px 6px 4px #00000057;
+  }
 }
 
 .group-list__item__state {
