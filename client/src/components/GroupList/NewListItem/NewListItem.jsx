@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-
 import { Input } from "antd";
 import { LikeOutlined, DislikeOutlined, ExclamationCircleTwoTone, PlusOutlined } from "@ant-design/icons";
 
@@ -13,8 +12,6 @@ export default function NewListItem() {
   let inputRef = useRef();
 
   useEffect(() => {
-    console.log("NewListItem -> inputRef.current", inputRef.current);
-
     if (inputRef.current) {
       inputRef.current.focus();
     }
@@ -25,15 +22,16 @@ export default function NewListItem() {
   };
   return isInputOff ? (
     <div className="group-list__item group-list__item_new" onClick={toggleInput}>
-      {/* <ExclamationCircleTwoTone twoToneColor="red" /> */}
       <span>
         <PlusOutlined className="plus-icon" /> Add new
       </span>
     </div>
   ) : (
-    <div className="group-list__item group-list__input" onBlur={toggleInput}>
-      <Search placeholder="input search text" enterButton="Add" size="large" ref={inputRef} onSearch={() => console.log(e.target.value)} />
+    <div
+      className="group-list__item group-list__input"
+      // onBlur={toggleInput}
+    >
+      <Search placeholder="input search text" enterButton="Add" size="large" ref={inputRef} onSearch={value => console.log(value)} />
     </div>
   );
-  // onSearch={onSearch} />
 }
