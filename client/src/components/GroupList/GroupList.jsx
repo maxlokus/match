@@ -27,6 +27,11 @@ export default function GroupList() {
       likes: 6,
       dislikes: 0,
     },
+    {
+      title: "Elvis Presley - Can't help falling in love",
+      likes: 4,
+      dislikes: 4,
+    },
   ];
 
   list.sort(function (a, b) {
@@ -44,7 +49,8 @@ export default function GroupList() {
       <div className="group-list">
         <NewListItem />
         {list.map((item, index) => {
-          return <GroupListItem listItem={item} positionInList={index} />;
+          const isTopPick = index < 3;
+          return <GroupListItem listItem={item} positionInList={index} isTop={isTopPick} />;
         })}
       </div>
     </Content>
