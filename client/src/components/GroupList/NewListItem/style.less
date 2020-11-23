@@ -1,3 +1,5 @@
+@import "../../../variables";
+
 .group-list__item_new {
   opacity: 0.7;
   border: dashed 2px #7b7a7a;
@@ -14,34 +16,6 @@
   }
 }
 
-.group-list__item_new__state {
-  display: flex;
-}
-
-.group-list__item_new__state_button {
-  border: none;
-  all: unset;
-  cursor: pointer;
-}
-
-.like {
-  margin-right: 16px;
-  color: #267827;
-}
-
-.like:hover {
-  color: #41d742;
-}
-
-.dislike {
-  margin-right: 8px;
-  color: #782639;
-}
-
-.dislike:hover {
-  color: #d9466a;
-}
-
 .group-list__input {
   border: none;
   box-shadow: none;
@@ -55,28 +29,28 @@
 
 .group-list__input {
   .ant-btn-primary {
-    background-color: #267827;
-    border: #267827;
+    background-color: @main-color;
+    border: @main-color;
 
     &:hover {
-      background-color: #41d742;
-      border: #41d742;
+      background-color: @main-color-hover;
+      border: @main-color-hover;
     }
   }
 }
 .group-list__input {
   .ant-input-affix-wrapper:hover {
-    border-color: #267827;
+    border-color: @main-color;
     outline: none;
     box-shadow: none;
   }
   .ant-input-affix-wrapper:focus {
-    border-color: #267827;
+    border-color: @main-color;
     outline: none;
     box-shadow: none;
   }
   .ant-input-affix-wrapper-focused {
-    border-color: #267827;
+    border-color: @main-color;
     outline: none;
     box-shadow: none;
   }

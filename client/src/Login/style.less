@@ -1,3 +1,5 @@
+@import "../variables";
+
 .login-page {
   display: flex;
   flex-direction: column;
@@ -31,32 +33,32 @@
 
   .ant-checkbox-checked {
     .ant-checkbox-inner {
-      background-color: #267827;
-      border: #267827;
+      background-color: @main-color;
+      border: @main-color;
     }
   }
 
   .ant-checkbox-wrapper {
     .ant-checkbox-inner {
-      border: 1px solid #267827;
+      border: 1px solid @main-color;
     }
   }
 
   .ant-form-item-control-input-content {
     .ant-btn-primary {
-      background: #267827;
-      border-color: #267827;
+      background: @main-color;
+      border-color: @main-color;
     }
   }
 
   .ant-form-item-control-input-content {
     .ant-btn-primary:hover {
-      background-color: #94aa6c;
-      border-color: #94aa6c;
+      background-color: @main-color-hover;
+      border-color: @main-color-hover;
     }
   }
 
   .ant-btn-primary:hover .ant-btn-primary:focus {
-    background-color: #267827;
+    background-color: @main-color;
   }
 }
