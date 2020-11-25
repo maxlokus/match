@@ -47,7 +47,7 @@ export default function GroupList() {
   return (
     <Content className="layout__element">
       <div className="group-list">
-        <NewListItem />
+        <NewListItem list={list} />
         {list.map((item, index) => {
           const isTopPick = index < 3;
           return <GroupListItem listItem={item} positionInList={index} isTop={isTopPick} />;
