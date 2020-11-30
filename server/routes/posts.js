@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     const posts = await Post.find();
     res.json(posts);
   } catch (e) {
-    res.json({ message: e});
+    res.json({ message: e });
   }
 });
 
@@ -19,20 +19,21 @@ router.get('/', async (req, res) => {
 
 
 //submit a post
-router.post('/', async (req,res) => {
+router.post('/', async (req, res) => {
   console.log(req.body)
   const post = new Post({
-    title:req.body.title,
-    description:req.body.description
+    title: req.body.title,
+    description: req.body.description
   });
   console.log(post);
   try {
     const savedPost = await post.save();
     res.json(savedPost);
   } catch (e) {
-    res.json({ message: e});
+    res.json({ message: e });
   }
 });
+
 //get specific post
 router.get('/:postId', async (req, res) => {
   // console.log(req.params.postId);
@@ -40,7 +41,7 @@ router.get('/:postId', async (req, res) => {
     const post = await Post.findById(req.params.postId);
     res.json(post);
   } catch (e) {
-    res.json({message: e});
+    res.json({ message: e });
   }
 })
 

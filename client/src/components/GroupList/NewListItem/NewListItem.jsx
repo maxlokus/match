@@ -39,7 +39,7 @@ export default function NewListItem({ list }) {
   ) : (
     <div
       className="group-list__item group-list__input"
-      // onBlur={toggleInput}
+      onBlur={toggleInput}
     >
       <AutoComplete
         options={options}
