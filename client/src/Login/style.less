@@ -13,11 +13,16 @@
   font-size: 40px;
 }
 
-.login-form__remember-block {
-  .ant-form-item-control-input-content {
+.ant-form-item-control-input-content {
     display: flex;
     justify-content: center;
   }
+
+
+.login-form__registration-link {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
 }
 
 .login-page {
@@ -26,10 +31,12 @@
     padding: 10vh 10vh 0 10vh;
   }
 
-  .ant-form-item-control-input-content {
+ .login-page{
+   .ant-form-item-control-input-content {
     display: flex;
     justify-content: center;
   }
+ }
 
   .ant-checkbox-checked {
     .ant-checkbox-inner {
@@ -61,4 +68,8 @@
   .ant-btn-primary:hover .ant-btn-primary:focus {
     background-color: @main-color;
   }
+}
+
+.ant-form-item {
+  width: 16vw;
 }

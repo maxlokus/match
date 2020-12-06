@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import Group from "./Group/Group";
 import UserInfo from "./UserInfo";
+import CreateNewGroup from './NewGroup/CreateNewGroup';
 
 import { Layout } from "antd";
 import { LeftCircleTwoTone, RightCircleTwoTone } from "@ant-design/icons";
@@ -31,6 +32,7 @@ export default function Sider({ updateData }) {
           <h2 className="groups-header-name">{!isSiderCollapsed && "Groups"}</h2>
         </div>
         <Group isSiderCollapsed={isSiderCollapsed} />
+        <CreateNewGroup isSiderCollapsed={isSiderCollapsed}/>
       </div>
       <UserInfo updateData={updateData} isSiderCollapsed={isSiderCollapsed} />
     </Sider>
