@@ -10,6 +10,16 @@ require('dotenv/config');
 app.use(cors());
 app.use(express.json());
 
+app.get('/', async(req, res) => {
+  try {
+    const userInfo = await pool.query(
+      'SELECT * FROM public."users"',);
+    res.json(userInfo.rows[0]);
+  }catch (e) {
+    console.error(e.message);
+  }
+});
+
 app.post('/registration', async (req,res) => {
   try {
     const info = req.body;
