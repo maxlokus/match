@@ -7,6 +7,9 @@ const pool = require('./db')
 
 require('dotenv/config');
 
+console.log("Database_URL", process.env.DATABASE_URL);
+
+
 app.use(cors());
 app.use(express.json());
 
