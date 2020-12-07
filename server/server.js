@@ -13,17 +13,18 @@ console.log("Database_URL", process.env.DATABASE_URL);
 app.use(cors());
 app.use(express.json());
 
-app.get('/', async(req, res) => {
+app.get('/', async (req, res) => {
   try {
-    const userInfo = await pool.query(
-      'SELECT * FROM public."users"',);
-    res.json(userInfo.rows[0]);
-  }catch (e) {
+    // const userInfo = await pool.query(
+    //   'SELECT * FROM public."users"',);
+    // res.send(userInfo.rows[0]);
+    res.end('<h1> Im ALIVE!!!!11 </h1>')
+  } catch (e) {
     console.error(e.message);
   }
 });
 
-app.post('/registration', async (req,res) => {
+app.post('/registration', async (req, res) => {
   try {
     const info = req.body;
     const newUser = await pool.query(
@@ -36,20 +37,20 @@ app.post('/registration', async (req,res) => {
 });
 
 //get info about user for login with login parameter
-app.get('/login/:login', async(req, res) => {
+app.get('/login/:login', async (req, res) => {
   try {
-    const {login} = req.params;
+    const { login } = req.params;
     const userInfo = await pool.query(
-    'SELECT * FROM public."users" WHERE login = $1',
+      'SELECT * FROM public."users" WHERE login = $1',
       [login]);
     res.json(userInfo.rows[0]);
-  }catch (e) {
+  } catch (e) {
     console.error(e.message);
   }
 });
 
 //add suggestion
-app.post('/suggestions/add', async (req,res) => {
+app.post('/suggestions/add', async (req, res) => {
   try {
     const info = req.body;
     const newSuggestion = await pool.query(
@@ -62,7 +63,7 @@ app.post('/suggestions/add', async (req,res) => {
 });
 
 //add new group
-app.post('/groups/add', async (req,res) => {
+app.post('/groups/add', async (req, res) => {
   try {
     const info = req.body;
     const newGroup = await pool.query(
@@ -75,7 +76,7 @@ app.post('/groups/add', async (req,res) => {
 });
 
 //add user to the group
-app.post('/user/addgroup', async (req,res) => {
+app.post('/user/addgroup', async (req, res) => {
   try {
     const info = req.body;
     const addUserToGroup = await pool.query(
@@ -88,47 +89,47 @@ app.post('/user/addgroup', async (req,res) => {
 });
 
 //get info about user groups
-app.get('/user/groups/:userId', async(req, res) => {
+app.get('/user/groups/:userId', async (req, res) => {
   try {
-    const {userId} = req.params;
+    const { userId } = req.params;
     const userGroups = await pool.query(
       'SELECT * FROM public."groups" LEFT JOIN public."user_groups" ON public."user_groups".group_id = public."groups".id WHERE "user_id" = $1',
       [userId]);
     res.json(userGroups.rows);
-  }catch (e) {
+  } catch (e) {
     console.error(e.message);
   }
 });
 
 //get info about group members
-app.get('/group/users/:groupId', async(req, res) => {
+app.get('/group/users/:groupId', async (req, res) => {
   try {
-    const {groupId} = req.params;
+    const { groupId } = req.params;
     const groupUsers = await pool.query(
       'SELECT * FROM public."users" LEFT JOIN public."user_groups" ON public."user_groups".user_id = public."users".user_id WHERE "group_id" = $1',
       [groupId]);
     res.json(groupUsers.rows);
-  }catch (e) {
+  } catch (e) {
     console.error(e.message);
   }
 });
 
 
 //get info about group suggestions
-app.get('/group/suggestions/:groupId', async(req, res) => {
+app.get('/group/suggestions/:groupId', async (req, res) => {
   try {
-    const {groupId} = req.params;
+    const { groupId } = req.params;
     const groupSuggestions = await pool.query(
       'SELECT * FROM public."suggestions" WHERE group_id = $1',
       [groupId]);
     res.json(groupSuggestions.rows);
-  }catch (e) {
+  } catch (e) {
     console.error(e.message);
   }
 });
 
 //for like/dislike button
-app.post('/user/suggestion/decision', async (req,res) => {
+app.post('/user/suggestion/decision', async (req, res) => {
   try {
     const info = req.body;
     const addSuggestionDecision = await pool.query(
