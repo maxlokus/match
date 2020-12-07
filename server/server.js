@@ -156,5 +156,5 @@ app.post('/user/suggestion/decision', async (req,res) => {
 // app.use('/posts', postRoute);
 
 // mongoose.connect('mongodb+srv://match:12345@match-server.ocnee.mongodb.net/matchDB?retryWrites=true&w=majority',{ useNewUrlParser: true }, ()=> console.log('connected to DB'))
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 3000);
 
